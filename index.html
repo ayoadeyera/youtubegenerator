@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faceless Channel Prototype</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #E0E0E0;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-6xl mx-auto bg-[#1a1a1a] rounded-xl shadow-lg p-6 md:p-10 border border-[#2a2a2a]">
+        <!-- Header & Channel Selection -->
+        <header class="mb-8 md:mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-center mb-4 text-white">Faceless Channel Prototype</h1>
+            <p class="text-center text-gray-400 mb-6">A proof-of-concept for different faceless YouTube channel niches.</p>
+            <div class="flex flex-wrap justify-center space-y-2 md:space-y-0 md:space-x-4">
+                <button id="tech-btn" class="channel-btn bg-[#2a2a2a] hover:bg-[#3a3a3a] text-white font-semibold py-2 px-4 rounded-full transition-colors duration-200">
+                    Tech & Electronics
+                </button>
+                <button id="billionaire-btn" class="channel-btn bg-[#2a2a2a] hover:bg-[#3a3a3a] text-white font-semibold py-2 px-4 rounded-full transition-colors duration-200">
+                    Billionaire Lifestyle
+                </button>
+                <button id="travel-btn" class="channel-btn bg-[#2a2a2a] hover:bg-[#3a3a3a] text-white font-semibold py-2 px-4 rounded-full transition-colors duration-200">
+                    Travel & Tours
+                </button>
+            </div>
+        </header>
+
+        <!-- General Message/Alert Container -->
+        <div id="message-container" class="mb-6 hidden">
+            <div id="message-text" class="p-4 bg-red-800 text-white text-center rounded-lg"></div>
+        </div>
+
+        <!-- Channel Content Container -->
+        <main id="content-container">
+            <!-- Tech & Electronics Content -->
+            <section id="tech-content" class="channel-section">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white text-center">Tech & Electronics Reviews</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Tech Video Card 1 -->
+                    <div class="video-card bg-[#202020] rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/2C5364/EAEAEA?text=The+Best+Gaming+Mouse" alt="Placeholder for Tech Product Review Video" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white mb-2">The Ultimate Gaming Mouse: A Deep Dive</h3>
+                            <p class="text-sm text-gray-400">An in-depth, faceless review of the latest gaming peripherals, focusing on performance and features.</p>
+                        </div>
+                    </div>
+                    <!-- Tech Video Card 2 -->
+                    <div class="video-card bg-[#202020] rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/4B79A1/EAEAEA?text=Building+a+PC+in+2025" alt="Placeholder for PC Build Guide Video" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white mb-2">PC Building Guide for Beginners 2025</h3>
+                            <p class="text-sm text-gray-400">Step-by-step guide to assembling your first computer. No face, just clear instructions.</p>
+                        </div>
+                    </div>
+                     <!-- Tech Video Card 3 -->
+                    <div class="video-card bg-[#202020] rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/989C8F/333333?text=Smartphone+Review" alt="Placeholder for Smartphone Review Video" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white mb-2">The Newest Smartphone: Is It Worth It?</h3>
+                            <p class="text-sm text-gray-400">A detailed analysis of the latest flagship phone's features, camera, and battery life.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Billionaire Lifestyle Content -->
+            <section id="billionaire-content" class="channel-section hidden">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white text-center">Billionaire Lifestyle & Business</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Lifestyle Video Card 1 -->
+                    <div class="video-card bg-[#202020] rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/1E3A8A/FFFFFF?text=Inside+a+Mega+Yacht" alt="Placeholder for Mega Yacht Tour Video" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white mb-2">Inside the Most Expensive Mega Yachts on the Planet</h3>
+                            <p class="text-sm text-gray-400">Explore the extravagant interiors of superyachts with a captivating voice-over narrative.</p>
+                        </div>
+                    </div>
+                    <!-- Lifestyle Video Card 2 -->
+                    <div class="video-card bg-[#202020] rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/4A255B/FFFFFF?text=Luxury+Penthouse+Tour" alt="Placeholder for Luxury Penthouse Tour Video" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white mb-2">Touring a $100 Million Penthouse in NYC</h3>
+                            <p class="text-sm text-gray-400">A cinematic tour of a luxury apartment with a detailed commentary on its features and history.</p>
+                        </div>
+                    </div>
+                    <!-- Lifestyle Video Card 3 -->
+                    <div class="video-card bg-[#202020] rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/783319/FFFFFF?text=Private+Jet+Fleet" alt="Placeholder for Private Jet Fleet Video" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white mb-2">The Private Jet Fleets of the Tech Titans</h3>
+                            <p class="text-sm text-gray-400">An examination of the private planes used by the world's richest individuals and why they choose them.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Travel & Tours Content -->
+            <section id="travel-content" class="channel-section hidden">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white text-center">Travel Tours & Lifestyle</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Travel Video Card 1 -->
+                    <div class="video-card bg-[#202020] rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/144D59/E0E0E0?text=Exploring+Tokyo+at+Night" alt="Placeholder for Tokyo Tour Video" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white mb-2">Tokyo's Neon Lights: A Night Tour</h3>
+                            <p class="text-sm text-gray-400">A cinematic journey through Tokyo's vibrant nightlife, using dynamic drone and city footage.</p>
+                        </div>
+                    </div>
+                    <!-- Travel Video Card 2 -->
+                    <div class="video-card bg-[#202020] rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/2A7B54/E0E0E0?text=Hiking+in+the+Alps" alt="Placeholder for Alps Hiking Video" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white mb-2">The Hidden Trails of the Swiss Alps</h3>
+                            <p class="text-sm text-gray-400">A serene, music-driven video showcasing the breathtaking beauty of hiking in the Swiss Alps.</p>
+                        </div>
+                    </div>
+                    <!-- Travel Video Card 3 -->
+                    <div class="video-card bg-[#202020] rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/402B19/E0E0E0?text=Bora+Bora+Resort+Tour" alt="Placeholder for Bora Bora Video" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white mb-2">Bora Bora's Overwater Bungalows: A Guide</h3>
+                            <p class="text-sm text-gray-400">A comprehensive tour of the most luxurious resorts in Bora Bora, with tips and recommendations.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- New Feature: Video Idea Generator -->
+        <section class="mt-12 pt-8 border-t border-[#2a2a2a]">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white text-center">Video Idea Generator ✨</h2>
+            <div class="flex flex-wrap justify-center space-y-2 md:space-y-0 md:space-x-4">
+                <button id="tech-ideas-btn" class="ideas-btn bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200" data-channel="Tech">
+                    Tech Ideas
+                </button>
+                <button id="billionaire-ideas-btn" class="ideas-btn bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200" data-channel="Billionaire">
+                    Billionaire Ideas
+                </button>
+                <button id="travel-ideas-btn" class="ideas-btn bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200" data-channel="Travel">
+                    Travel Ideas
+                </button>
+            </div>
+
+            <div id="ideas-loading-indicator" class="hidden flex justify-center items-center py-4">
+                <div class="spinner"></div>
+                <span class="ml-4 text-gray-400">Generating ideas...</span>
+            </div>
+
+            <div id="ideas-output-container" class="mt-6 p-6 bg-[#202020] rounded-xl hidden">
+                <pre id="ideas-output" class="whitespace-pre-wrap text-sm text-gray-300"></pre>
+                <button id="copy-ideas-btn" class="mt-4 w-full bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Copy to Clipboard
+                </button>
+            </div>
+        </section>
+
+        <!-- Existing Script Generator -->
+        <section class="mt-12 pt-8 border-t border-[#2a2a2a]">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white text-center">Video Script Generator ✨</h2>
+            <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4 mb-6">
+                <input type="text" id="topic-input" placeholder="Enter a video topic, e.g., 'The future of AI'" class="flex-1 w-full px-4 py-3 rounded-full bg-[#2a2a2a] text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white">
+                <button id="generate-btn" class="flex-shrink-0 w-full md:w-auto bg-white text-black font-semibold py-3 px-6 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Generate Script
+                </button>
+            </div>
+
+            <!-- Loading & Output -->
+            <div id="loading-indicator" class="hidden flex justify-center items-center py-4">
+                <div class="spinner"></div>
+                <span class="ml-4 text-gray-400">Generating script...</span>
+            </div>
+
+            <div id="script-output-container" class="mt-6 p-6 bg-[#202020] rounded-xl hidden">
+                <pre id="script-output" class="whitespace-pre-wrap text-sm text-gray-300"></pre>
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0 md:space-x-4 mt-4">
+                    <button id="copy-btn" class="w-full md:w-1/2 bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                        Copy to Clipboard
+                    </button>
+                    <button id="tts-btn" class="w-full md:w-1/2 bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                        Generate Voiceover ✨
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Features for Script Output -->
+        <section class="mt-12 pt-8 border-t border-[#2a2a2a]">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white text-center">Script Enhancers</h2>
+            <div class="flex flex-wrap justify-center space-y-2 md:space-y-0 md:space-x-4 mb-6">
+                <button id="title-gen-btn" class="enhancer-btn bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Generate Title & Description ✨
+                </button>
+                <button id="visual-gen-btn" class="enhancer-btn bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Generate Visual Assets ✨
+                </button>
+            </div>
+
+            <!-- Loading & Output -->
+            <div id="enhancer-loading-indicator" class="hidden flex justify-center items-center py-4">
+                <div class="spinner"></div>
+                <span class="ml-4 text-gray-400">Generating enhancements...</span>
+            </div>
+
+            <div id="enhancer-output-container" class="mt-6 p-6 bg-[#202020] rounded-xl hidden">
+                <pre id="enhancer-output" class="whitespace-pre-wrap text-sm text-gray-300"></pre>
+                <button id="copy-enhancer-btn" class="mt-4 w-full bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Copy to Clipboard
+                </button>
+            </div>
+        </section>
+
+        <!-- Existing TTS Voiceover -->
+        <section class="mt-12 pt-8 border-t border-[#2a2a2a]">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white text-center">AI Voiceover Player ✨</h2>
+            <div id="tts-loading-indicator" class="hidden flex justify-center items-center py-4">
+                <div class="spinner"></div>
+                <span class="ml-4 text-gray-400">Generating voiceover...</span>
+            </div>
+            <div id="tts-output-container" class="mt-6 p-6 bg-[#202020] rounded-xl hidden">
+                <audio id="tts-audio" controls class="w-full"></audio>
+            </div>
+        </section>
+
+        <!-- New Section for Community & Engagement -->
+        <section class="mt-12 pt-8 border-t border-[#2a2a2a]">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white text-center">Community & Engagement Tools ✨</h2>
+            <div class="flex flex-wrap justify-center space-y-2 md:space-y-0 md:space-x-4">
+                <button id="tags-gen-btn" class="community-btn bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Generate Hashtags & Tags ✨
+                </button>
+            </div>
+
+            <!-- Tags & Hashtags Output -->
+            <div id="tags-loading-indicator" class="hidden flex justify-center items-center py-4">
+                <div class="spinner"></div>
+                <span class="ml-4 text-gray-400">Generating tags...</span>
+            </div>
+
+            <div id="tags-output-container" class="mt-6 p-6 bg-[#202020] rounded-xl hidden">
+                <pre id="tags-output" class="whitespace-pre-wrap text-sm text-gray-300"></pre>
+                <button id="copy-tags-btn" class="mt-4 w-full bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Copy to Clipboard
+                </button>
+            </div>
+
+            <div class="mt-12">
+                <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4 mb-6">
+                    <input type="text" id="comment-input" placeholder="Enter a viewer comment to reply to..." class="flex-1 w-full px-4 py-3 rounded-full bg-[#2a2a2a] text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white">
+                    <button id="comment-gen-btn" class="flex-shrink-0 w-full md:w-auto bg-white text-black font-semibold py-3 px-6 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                        Generate Comment Reply ✨
+                    </button>
+                </div>
+            </div>
+
+            <!-- Comment Reply Output -->
+            <div id="comment-loading-indicator" class="hidden flex justify-center items-center py-4">
+                <div class="spinner"></div>
+                <span class="ml-4 text-gray-400">Generating reply...</span>
+            </div>
+            <div id="comment-output-container" class="mt-6 p-6 bg-[#202020] rounded-xl hidden">
+                <pre id="comment-output" class="whitespace-pre-wrap text-sm text-gray-300"></pre>
+                <button id="copy-comment-btn" class="mt-4 w-full bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Copy to Clipboard
+                </button>
+            </div>
+        </section>
+
+        <!-- New Section for Visual & Global Tools -->
+        <section class="mt-12 pt-8 border-t border-[#2a2a2a]">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white text-center">Visual & Global Tools</h2>
+            <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4 mb-6">
+                <button id="thumbnail-gen-btn" class="w-full md:w-auto bg-white text-black font-semibold py-3 px-6 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Generate Thumbnail ✨
+                </button>
+                <select id="language-select" class="flex-1 w-full px-4 py-3 rounded-full bg-[#2a2a2a] text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white">
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="ja">Japanese</option>
+                    <option value="ko">Korean</option>
+                </select>
+                <button id="translate-btn" class="w-full md:w-auto bg-white text-black font-semibold py-3 px-6 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Translate Script ✨
+                </button>
+            </div>
+
+            <!-- Loading & Output for Thumbnail -->
+            <div id="thumbnail-loading-indicator" class="hidden flex justify-center items-center py-4">
+                <div class="spinner"></div>
+                <span class="ml-4 text-gray-400">Generating thumbnail...</span>
+            </div>
+            <div id="thumbnail-output-container" class="mt-6 p-6 bg-[#202020] rounded-xl hidden">
+                <img id="thumbnail-image" class="w-full h-auto rounded-lg">
+                <button id="copy-thumbnail-btn" class="mt-4 w-full bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Copy Image URL
+                </button>
+            </div>
+
+            <!-- Loading & Output for Translation -->
+            <div id="translation-loading-indicator" class="hidden flex justify-center items-center py-4">
+                <div class="spinner"></div>
+                <span class="ml-4 text-gray-400">Translating script...</span>
+            </div>
+            <div id="translation-output-container" class="mt-6 p-6 bg-[#202020] rounded-xl hidden">
+                <pre id="translation-output" class="whitespace-pre-wrap text-sm text-gray-300"></pre>
+                <button id="copy-translation-btn" class="mt-4 w-full bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Copy to Clipboard
+                </button>
+            </div>
+        </section>
+
+        <!-- New Section for Content Repurposing & Optimization -->
+        <section class="mt-12 pt-8 border-t border-[#2a2a2a]">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white text-center">Content Repurposing & Optimization</h2>
+            <div class="flex flex-wrap justify-center space-y-2 md:space-y-0 md:space-x-4 mb-6">
+                <button id="social-media-gen-btn" class="repurpose-btn bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Generate Social Media Posts ✨
+                </button>
+                <button id="summary-gen-btn" class="repurpose-btn bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Generate Summary & Timestamps ✨
+                </button>
+            </div>
+
+            <!-- Loading & Output -->
+            <div id="repurpose-loading-indicator" class="hidden flex justify-center items-center py-4">
+                <div class="spinner"></div>
+                <span class="ml-4 text-gray-400">Generating content...</span>
+            </div>
+
+            <div id="repurpose-output-container" class="mt-6 p-6 bg-[#202020] rounded-xl hidden">
+                <pre id="repurpose-output" class="whitespace-pre-wrap text-sm text-gray-300"></pre>
+                <button id="copy-repurpose-btn" class="mt-4 w-full bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Copy to Clipboard
+                </button>
+            </div>
+        </section>
+        
+        <!-- New Section for Quality & Engagement Tools -->
+        <section class="mt-12 pt-8 border-t border-[#2a2a2a]">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white text-center">Quality & Engagement Tools</h2>
+            <div class="flex flex-wrap justify-center space-y-2 md:space-y-0 md:space-x-4 mb-6">
+                <button id="fact-check-btn" class="qa-btn bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Fact Check Script ✨
+                </button>
+                <button id="quiz-gen-btn" class="qa-btn bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Generate Engagement Quiz ✨
+                </button>
+            </div>
+            
+            <!-- Loading & Output -->
+            <div id="qa-loading-indicator" class="hidden flex justify-center items-center py-4">
+                <div class="spinner"></div>
+                <span class="ml-4 text-gray-400">Processing...</span>
+            </div>
+            
+            <div id="qa-output-container" class="mt-6 p-6 bg-[#202020] rounded-xl hidden">
+                <pre id="qa-output" class="whitespace-pre-wrap text-sm text-gray-300"></pre>
+                <button id="copy-qa-btn" class="mt-4 w-full bg-white text-black font-semibold py-2 px-4 rounded-full transition-colors duration-200 hover:bg-gray-200">
+                    Copy to Clipboard
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const techBtn = document.getElementById('tech-btn');
+        const billionaireBtn = document.getElementById('billionaire-btn');
+        const travelBtn = document.getElementById('travel-btn');
+        const sections = document.querySelectorAll('.channel-section');
+        const buttons = document.querySelectorAll('.channel-btn');
+        const messageContainer = document.getElementById('message-container');
+        const messageText = document.getElementById('message-text');
+
+        // Existing Script Generator
+        const topicInput = document.getElementById('topic-input');
+        const generateBtn = document.getElementById('generate-btn');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const scriptOutputContainer = document.getElementById('script-output-container');
+        const scriptOutput = document.getElementById('script-output');
+        const copyBtn = document.getElementById('copy-btn');
+        const ttsBtn = document.getElementById('tts-btn');
+
+        // New Video Idea Generator
+        const ideasBtns = document.querySelectorAll('.ideas-btn');
+        const ideasLoadingIndicator = document.getElementById('ideas-loading-indicator');
+        const ideasOutputContainer = document.getElementById('ideas-output-container');
+        const ideasOutput = document.getElementById('ideas-output');
+        const copyIdeasBtn = document.getElementById('copy-ideas-btn');
+
+        // New Features for Script Output
+        const titleGenBtn = document.getElementById('title-gen-btn');
+        const visualGenBtn = document.getElementById('visual-gen-btn');
+        const enhancerLoadingIndicator = document.getElementById('enhancer-loading-indicator');
+        const enhancerOutputContainer = document.getElementById('enhancer-output-container');
+        const enhancerOutput = document.getElementById('enhancer-output');
+        const copyEnhancerBtn = document.getElementById('copy-enhancer-btn');
+
+        // Existing TTS Voiceover
+        const ttsLoadingIndicator = document.getElementById('tts-loading-indicator');
+        const ttsOutputContainer = document.getElementById('tts-output-container');
+        const ttsAudio = document.getElementById('tts-audio');
+
+        // New Community & Engagement Tools
+        const tagsGenBtn = document.getElementById('tags-gen-btn');
+        const tagsLoadingIndicator = document.getElementById('tags-loading-indicator');
+        const tagsOutputContainer = document.getElementById('tags-output-container');
+        const tagsOutput = document.getElementById('tags-output');
+        const copyTagsBtn = document.getElementById('copy-tags-btn');
+
+        const commentInput = document.getElementById('comment-input');
+        const commentGenBtn = document.getElementById('comment-gen-btn');
+        const commentLoadingIndicator = document.getElementById('comment-loading-indicator');
+        const commentOutputContainer = document.getElementById('comment-output-container');
+        const commentOutput = document.getElementById('comment-output');
+        const copyCommentBtn = document.getElementById('copy-comment-btn');
+
+        // New Visual & Global Tools
+        const thumbnailGenBtn = document.getElementById('thumbnail-gen-btn');
+        const thumbnailLoadingIndicator = document.getElementById('thumbnail-loading-indicator');
+        const thumbnailOutputContainer = document.getElementById('thumbnail-output-container');
+        const thumbnailImage = document.getElementById('thumbnail-image');
+        const copyThumbnailBtn = document.getElementById('copy-thumbnail-btn');
+        const languageSelect = document.getElementById('language-select');
+        const translateBtn = document.getElementById('translate-btn');
+        const translationLoadingIndicator = document.getElementById('translation-loading-indicator');
+        const translationOutputContainer = document.getElementById('translation-output-container');
+        const translationOutput = document.getElementById('translation-output');
+        const copyTranslationBtn = document.getElementById('copy-translation-btn');
+
+        // New Repurposing & Optimization Tools
+        const socialMediaGenBtn = document.getElementById('social-media-gen-btn');
+        const summaryGenBtn = document.getElementById('summary-gen-btn');
+        const repurposeLoadingIndicator = document.getElementById('repurpose-loading-indicator');
+        const repurposeOutputContainer = document.getElementById('repurpose-output-container');
+        const repurposeOutput = document.getElementById('repurpose-output');
+        const copyRepurposeBtn = document.getElementById('copy-repurpose-btn');
+        
+        // New Quality & Engagement Tools
+        const factCheckBtn = document.getElementById('fact-check-btn');
+        const quizGenBtn = document.getElementById('quiz-gen-btn');
+        const qaLoadingIndicator = document.getElementById('qa-loading-indicator');
+        const qaOutputContainer = document.getElementById('qa-output-container');
+        const qaOutput = document.getElementById('qa-output');
+        const copyQaBtn = document.getElementById('copy-qa-btn');
+
+        function showMessage(text, isError = false) {
+            messageText.textContent = text;
+            messageContainer.classList.remove('hidden');
+            if (isError) {
+                messageContainer.classList.remove('bg-green-800');
+                messageContainer.classList.add('bg-red-800');
+            } else {
+                messageContainer.classList.remove('bg-red-800');
+                messageContainer.classList.add('bg-green-800');
+            }
+            setTimeout(() => {
+                messageContainer.classList.add('hidden');
+            }, 5000);
+        }
+
+        function switchChannel(channelId) {
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(channelId).classList.remove('hidden');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-white', 'text-black');
+                btn.classList.add('bg-[#2a2a2a]', 'text-white');
+            });
+
+            const buttonId = channelId.replace('-content', '-btn');
+            const activeButton = document.getElementById(buttonId);
+            if (activeButton) {
+                activeButton.classList.remove('bg-[#2a2a2a]', 'text-white');
+                activeButton.classList.add('bg-white', 'text-black');
+            }
+        }
+
+        techBtn.addEventListener('click', () => switchChannel('tech-content'));
+        billionaireBtn.addEventListener('click', () => switchChannel('billionaire-content'));
+        travelBtn.addEventListener('click', () => switchChannel('travel-content'));
+        switchChannel('tech-content');
+
+        // Video Idea Generator
+        ideasBtns.forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const channel = btn.getAttribute('data-channel');
+                ideasLoadingIndicator.classList.remove('hidden');
+                ideasOutputContainer.classList.add('hidden');
+
+                try {
+                    const systemPrompt = "You are a creative YouTube video idea generator. You will provide compelling, faceless video ideas for a channel about the given topic. The ideas should be highly engaging and suitable for visual-first content.";
+                    const userQuery = `Generate 5 video ideas for a faceless YouTube channel about ${channel.toLowerCase()} and tours. For each idea, provide a catchy title and a brief one-sentence description. Format the response as a numbered list.`;
+                    const apiKey = "";
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                    const payload = {
+                        contents: [{ parts: [{ text: userQuery }] }],
+                        systemInstruction: { parts: [{ text: systemPrompt }] },
+                    };
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+                    const ideas = result?.candidates?.[0]?.content?.parts?.[0]?.text || 'Failed to generate ideas. Please try again.';
+
+                    ideasOutput.textContent = ideas;
+                    ideasOutputContainer.classList.remove('hidden');
+                } catch (error) {
+                    console.error('Error generating ideas:', error);
+                    showMessage('An error occurred while generating ideas.', true);
+                } finally {
+                    ideasLoadingIndicator.classList.add('hidden');
+                }
+            });
+        });
+
+        copyIdeasBtn.addEventListener('click', () => {
+            const textToCopy = ideasOutput.textContent;
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => showMessage("Ideas copied to clipboard!"))
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    showMessage("Failed to copy ideas.", true);
+                });
+        });
+
+        // Existing Script Generator
+        generateBtn.addEventListener('click', async () => {
+            const topic = topicInput.value.trim();
+            if (!topic) {
+                showMessage("Please enter a video topic.", true);
+                return;
+            }
+
+            loadingIndicator.classList.remove('hidden');
+            scriptOutputContainer.classList.add('hidden');
+            scriptOutput.textContent = '';
+
+            try {
+                const systemPrompt = "You are a professional YouTube video scriptwriter. Your task is to write a compelling, faceless video script that is suitable for a voice-over and on-screen visuals. The script should be engaging, informative, and avoid mentioning a person or using 'I' or 'you'.";
+                const userQuery = `Write a 300-word faceless YouTube video script about the topic: "${topic}".`;
+                const apiKey = ""
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text || 'Failed to generate script. Please try a different topic.';
+
+                scriptOutput.textContent = text;
+                scriptOutputContainer.classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Error generating script:', error);
+                showMessage('An error occurred while generating the script. Please try again.', true);
+            } finally {
+                loadingIndicator.classList.add('hidden');
+            }
+        });
+
+        copyBtn.addEventListener('click', () => {
+            const textToCopy = scriptOutput.textContent;
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => showMessage("Script copied to clipboard!"))
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    showMessage("Failed to copy script.", true);
+                });
+        });
+
+        // New Title Generator
+        titleGenBtn.addEventListener('click', async () => {
+            const script = scriptOutput.textContent.trim();
+            if (!script) {
+                showMessage("Please generate a script first.", true);
+                return;
+            }
+
+            enhancerLoadingIndicator.classList.remove('hidden');
+            enhancerOutputContainer.classList.add('hidden');
+            enhancerOutput.textContent = '';
+
+            try {
+                const systemPrompt = "You are a YouTube SEO expert. Your task is to analyze a video script and generate a highly clickable and SEO-friendly title and a short, engaging description for the video.";
+                const userQuery = `Analyze the following script and provide a YouTube video title and a one-sentence description. Only provide the title and description, nothing else.\n\nScript:\n${script}`;
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text || 'Failed to generate title. Please try again.';
+
+                enhancerOutput.textContent = text;
+                enhancerOutputContainer.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error generating title:', error);
+                showMessage('An error occurred while generating the title. Please try again.', true);
+            } finally {
+                enhancerLoadingIndicator.classList.add('hidden');
+            }
+        });
+
+        // New Visual Asset Generator
+        visualGenBtn.addEventListener('click', async () => {
+            const script = scriptOutput.textContent.trim();
+            if (!script) {
+                showMessage("Please generate a script first.", true);
+                return;
+            }
+
+            enhancerLoadingIndicator.classList.remove('hidden');
+            enhancerOutputContainer.classList.add('hidden');
+            enhancerOutput.textContent = '';
+
+            try {
+                const systemPrompt = "You are a professional video editor and visual storyteller. Your task is to analyze a video script and suggest a list of relevant visual assets and stock footage keywords. Provide a concise, bulleted list.";
+                const userQuery = `Analyze the following video script and suggest 10 key visual assets or stock footage keywords to match the narrative. For example, if the script mentions a city, suggest "cinematic drone shot of cityscape".\n\nScript:\n${script}`;
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text || 'Failed to generate visual ideas. Please try again.';
+
+                enhancerOutput.textContent = text;
+                enhancerOutputContainer.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error generating visual ideas:', error);
+                showMessage('An error occurred while generating visual ideas. Please try again.', true);
+            } finally {
+                enhancerLoadingIndicator.classList.add('hidden');
+            }
+        });
+
+        copyEnhancerBtn.addEventListener('click', () => {
+            const textToCopy = enhancerOutput.textContent;
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => showMessage("Content copied to clipboard!"))
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    showMessage("Failed to copy content.", true);
+                });
+        });
+
+        // New TTS Voiceover
+        ttsBtn.addEventListener('click', async () => {
+            const script = scriptOutput.textContent.trim();
+            if (!script) {
+                showMessage("Please generate a script first.", true);
+                return;
+            }
+
+            ttsLoadingIndicator.classList.remove('hidden');
+            ttsOutputContainer.classList.add('hidden');
+            ttsAudio.pause();
+            ttsAudio.src = '';
+
+            try {
+                const payload = {
+                    contents: [{
+                        parts: [{ text: script }]
+                    }],
+                    generationConfig: {
+                        responseModalities: ["AUDIO"],
+                        speechConfig: {
+                            voiceConfig: {
+                                prebuiltVoiceConfig: { voiceName: "Kore" }
+                            }
+                        }
+                    },
+                    model: "gemini-2.5-flash-preview-tts"
+                };
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const part = result?.candidates?.[0]?.content?.parts?.[0];
+                const audioData = part?.inlineData?.data;
+                const mimeType = part?.inlineData?.mimeType;
+
+                if (audioData && mimeType && mimeType.startsWith("audio/")) {
+                    const sampleRate = parseInt(mimeType.match(/rate=(\d+)/)[1], 10);
+                    const pcmData = base64ToArrayBuffer(audioData);
+                    const pcm16 = new Int16Array(pcmData);
+                    const wavBlob = pcmToWav(pcm16, sampleRate);
+                    const audioUrl = URL.createObjectURL(wavBlob);
+
+                    ttsAudio.src = audioUrl;
+                    ttsOutputContainer.classList.remove('hidden');
+                    ttsAudio.play();
+                } else {
+                    showMessage("Failed to generate audio. Please try again.", true);
+                }
+            } catch (error) {
+                console.error('Error generating voiceover:', error);
+                showMessage('An error occurred while generating the voiceover. Please try again.', true);
+            } finally {
+                ttsLoadingIndicator.classList.add('hidden');
+            }
+        });
+
+        // New functionality for Tags & Comment Reply
+        tagsGenBtn.addEventListener('click', async () => {
+            const script = scriptOutput.textContent.trim();
+            if (!script) {
+                showMessage("Please generate a script first.", true);
+                return;
+            }
+
+            tagsLoadingIndicator.classList.remove('hidden');
+            tagsOutputContainer.classList.add('hidden');
+            tagsOutput.textContent = '';
+
+            try {
+                const systemPrompt = "You are a YouTube SEO expert. Your task is to analyze a video script and generate a concise list of 10-15 relevant hashtags and video tags. Provide a comma-separated list of tags and then a list of hashtags. Do not include any other text besides the tags and hashtags.";
+                const userQuery = `Generate hashtags and tags for the following video script:\n\nScript:\n${script}`;
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text || 'Failed to generate tags. Please try again.';
+
+                tagsOutput.textContent = text;
+                tagsOutputContainer.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error generating tags:', error);
+                showMessage('An error occurred while generating tags. Please try again.', true);
+            } finally {
+                tagsLoadingIndicator.classList.add('hidden');
+            }
+        });
+
+        copyTagsBtn.addEventListener('click', () => {
+            const textToCopy = tagsOutput.textContent;
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => showMessage("Tags copied to clipboard!"))
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    showMessage("Failed to copy tags.", true);
+                });
+        });
+
+        commentGenBtn.addEventListener('click', async () => {
+            const comment = commentInput.value.trim();
+            const script = scriptOutput.textContent.trim();
+            if (!comment) {
+                showMessage("Please enter a viewer comment first.", true);
+                return;
+            }
+            if (!script) {
+                showMessage("Please generate a video script first to provide context.", true);
+                return;
+            }
+
+            commentLoadingIndicator.classList.remove('hidden');
+            commentOutputContainer.classList.add('hidden');
+            commentOutput.textContent = '';
+
+            try {
+                const systemPrompt = "You are a helpful and friendly YouTube channel owner. Your task is to write a concise and engaging reply to a viewer's comment based on the video's script. The reply should be positive and encouraging.";
+                const userQuery = `Original video script:\n${script}\n\nViewer's comment:\n${comment}\n\nDraft a concise and friendly reply.`;
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text || 'Failed to generate reply. Please try again.';
+
+                commentOutput.textContent = text;
+                commentOutputContainer.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error generating comment reply:', error);
+                showMessage('An error occurred while generating the comment reply. Please try again.', true);
+            } finally {
+                commentLoadingIndicator.classList.add('hidden');
+            }
+        });
+
+        copyCommentBtn.addEventListener('click', () => {
+            const textToCopy = commentOutput.textContent;
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => showMessage("Reply copied to clipboard!"))
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    showMessage("Failed to copy reply.", true);
+                });
+        });
+
+        // New Thumbnail Generator
+        thumbnailGenBtn.addEventListener('click', async () => {
+            const topic = topicInput.value.trim();
+            if (!topic) {
+                showMessage("Please enter a video topic first.", true);
+                return;
+            }
+
+            thumbnailLoadingIndicator.classList.remove('hidden');
+            thumbnailOutputContainer.classList.add('hidden');
+            thumbnailImage.src = '';
+
+            try {
+                const prompt = `A cinematic, visually striking and highly engaging thumbnail image for a faceless YouTube video about "${topic}". The image should be abstract, captivating and suitable for a tech, billionaire, or travel channel.`;
+                const payload = { instances: { prompt: prompt }, parameters: { "sampleCount": 1} };
+                const apiKey = ""
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
+                    const imageUrl = `data:image/png;base64,${result.predictions[0].bytesBase64Encoded}`;
+                    thumbnailImage.src = imageUrl;
+                    thumbnailOutputContainer.classList.remove('hidden');
+                } else {
+                    showMessage("Failed to generate thumbnail. Please try again.", true);
+                }
+            } catch (error) {
+                console.error('Error generating thumbnail:', error);
+                showMessage('An error occurred while generating the thumbnail. Please try again.', true);
+            } finally {
+                thumbnailLoadingIndicator.classList.add('hidden');
+            }
+        });
+
+        copyThumbnailBtn.addEventListener('click', () => {
+            const textToCopy = thumbnailImage.src;
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => showMessage("Image URL copied to clipboard!"))
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    showMessage("Failed to copy image URL.", true);
+                });
+        });
+
+        // New Script Translator
+        translateBtn.addEventListener('click', async () => {
+            const script = scriptOutput.textContent.trim();
+            if (!script) {
+                showMessage("Please generate a script first to translate.", true);
+                return;
+            }
+
+            const language = languageSelect.value;
+            translationLoadingIndicator.classList.remove('hidden');
+            translationOutputContainer.classList.add('hidden');
+            translationOutput.textContent = '';
+
+            try {
+                const systemPrompt = "You are a professional translator. Your task is to accurately translate the provided text into the specified language.";
+                const userQuery = `Translate the following video script into ${languageSelect.options[languageSelect.selectedIndex].text}:\n\n${script}`;
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const translatedText = result?.candidates?.[0]?.content?.parts?.[0]?.text || 'Translation failed. Please try again.';
+
+                translationOutput.textContent = translatedText;
+                translationOutputContainer.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error translating script:', error);
+                showMessage('An error occurred while translating the script. Please try again.', true);
+            } finally {
+                translationLoadingIndicator.classList.add('hidden');
+            }
+        });
+
+        copyTranslationBtn.addEventListener('click', () => {
+            const textToCopy = translationOutput.textContent;
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => showMessage("Translated script copied to clipboard!"))
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    showMessage("Failed to copy translated script.", true);
+                });
+        });
+
+        // New Social Media Post Generator
+        socialMediaGenBtn.addEventListener('click', async () => {
+            const script = scriptOutput.textContent.trim();
+            if (!script) {
+                showMessage("Please generate a script first.", true);
+                return;
+            }
+
+            repurposeLoadingIndicator.classList.remove('hidden');
+            repurposeOutputContainer.classList.add('hidden');
+            repurposeOutput.textContent = '';
+
+            try {
+                const systemPrompt = "You are a social media manager. Your task is to take a video script and generate compelling, platform-specific social media posts for Twitter, Instagram, and TikTok to promote the video.";
+                const userQuery = `Generate a concise social media post for Twitter (max 280 characters), a short caption for Instagram with relevant emojis and hashtags, and a brief script idea for TikTok based on the following video script.\n\nScript:\n${script}`;
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text || 'Failed to generate social media posts. Please try again.';
+
+                repurposeOutput.textContent = text;
+                repurposeOutputContainer.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error generating social media posts:', error);
+                showMessage('An error occurred while generating social media posts. Please try again.', true);
+            } finally {
+                repurposeLoadingIndicator.classList.add('hidden');
+            }
+        });
+
+        // New Summary & Timestamps Generator
+        summaryGenBtn.addEventListener('click', async () => {
+            const script = scriptOutput.textContent.trim();
+            if (!script) {
+                showMessage("Please generate a script first.", true);
+                return;
+            }
+
+            repurposeLoadingIndicator.classList.remove('hidden');
+            repurposeOutputContainer.classList.add('hidden');
+            repurposeOutput.textContent = '';
+
+            try {
+                const systemPrompt = "You are a professional content creator. Your task is to analyze a video script and generate a brief summary and a list of key topics with timestamp markers. Assume a reading pace of 150 words per minute for timestamp estimation. The timestamps should be formatted like '0:00'.";
+                const userQuery = `Based on the following script, generate a one-paragraph summary for the video description and a list of timestamps with topic titles. Estimate timestamps assuming 150 words per minute.\n\nScript:\n${script}`;
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text || 'Failed to generate summary and timestamps. Please try again.';
+
+                repurposeOutput.textContent = text;
+                repurposeOutputContainer.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error generating summary and timestamps:', error);
+                showMessage('An error occurred while generating the summary and timestamps. Please try again.', true);
+            } finally {
+                repurposeLoadingIndicator.classList.add('hidden');
+            }
+        });
+
+        copyRepurposeBtn.addEventListener('click', () => {
+            const textToCopy = repurposeOutput.textContent;
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => showMessage("Content copied to clipboard!"))
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    showMessage("Failed to copy content.", true);
+                });
+        });
+        
+        // New Fact Checker
+        factCheckBtn.addEventListener('click', async () => {
+            const script = scriptOutput.textContent.trim();
+            if (!script) {
+                showMessage("Please generate a script first to fact-check.", true);
+                return;
+            }
+
+            qaLoadingIndicator.classList.remove('hidden');
+            qaOutputContainer.classList.add('hidden');
+            qaOutput.textContent = '';
+
+            try {
+                const systemPrompt = "You are an AI fact-checker. Your task is to review a video script and identify key factual claims that should be verified. Provide a concise, numbered list of claims and, for each, a confirmation or correction with a reference link to a credible source. If the claim is an opinion or not easily verifiable, state that it is not a factual claim.";
+                const userQuery = `Review the following script for factual accuracy. Identify key claims and provide a short verification and a source link for each one. Script:\n\n${script}`;
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    tools: [{ "google_search": {} }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                const result = await response.json();
+                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text || 'Fact-checking failed. Please try again.';
+                
+                qaOutput.textContent = text;
+                qaOutputContainer.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error fact-checking:', error);
+                showMessage('An error occurred during fact-checking. Please try again.', true);
+            } finally {
+                qaLoadingIndicator.classList.add('hidden');
+            }
+        });
+
+        // New Quiz Generator
+        quizGenBtn.addEventListener('click', async () => {
+            const script = scriptOutput.textContent.trim();
+            if (!script) {
+                showMessage("Please generate a script first to create a quiz.", true);
+                return;
+            }
+
+            qaLoadingIndicator.classList.remove('hidden');
+            qaOutputContainer.classList.add('hidden');
+            qaOutput.textContent = '';
+
+            try {
+                const systemPrompt = "You are a creative content developer. Your task is to generate a short, three-question multiple-choice quiz based on the content of a video script. The quiz should be engaging for viewers.";
+                const userQuery = `Generate a three-question, multiple-choice quiz based on the following script. Provide the questions, four possible answers for each (A, B, C, D), and the correct answer. The correct answer should be clearly marked with a '*' next to the letter.\n\nScript:\n${script}`;
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text || 'Failed to generate quiz. Please try again.';
+
+                qaOutput.textContent = text;
+                qaOutputContainer.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error generating quiz:', error);
+                showMessage('An error occurred while generating the quiz. Please try again.', true);
+            } finally {
+                qaLoadingIndicator.classList.add('hidden');
+            }
+        });
+
+        copyQaBtn.addEventListener('click', () => {
+            const textToCopy = qaOutput.textContent;
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => showMessage("Content copied to clipboard!"))
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    showMessage("Failed to copy content.", true);
+                });
+        });
+
+        // Helper functions for audio conversion
+        function base64ToArrayBuffer(base64) {
+            const binaryString = atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        function pcmToWav(pcm16, sampleRate) {
+            const pcmLength = pcm16.length * 2;
+            const buffer = new ArrayBuffer(44 + pcmLength);
+            const view = new DataView(buffer);
+
+            // WAV header
+            let offset = 0;
+            writeString(view, offset, 'RIFF'); offset += 4;
+            view.setUint32(offset, 36 + pcmLength, true); offset += 4;
+            writeString(view, offset, 'WAVE'); offset += 4;
+            writeString(view, offset, 'fmt '); offset += 4;
+            view.setUint32(offset, 16, true); offset += 4; // Sub-chunk size
+            view.setUint16(offset, 1, true); offset += 2; // Audio format (PCM)
+            view.setUint16(offset, 1, true); offset += 2; // Num channels
+            view.setUint32(offset, sampleRate, true); offset += 4;
+            view.setUint32(offset, sampleRate * 2, true); offset += 4; // Byte rate
+            view.setUint16(offset, 2, true); offset += 2; // Block align
+            view.setUint16(offset, 16, true); offset += 2; // Bits per sample
+            writeString(view, offset, 'data'); offset += 4;
+            view.setUint32(offset, pcmLength, true); offset += 4;
+
+            // Write PCM data
+            for (let i = 0; i < pcm16.length; i++, offset += 2) {
+                view.setInt16(offset, pcm16[i], true);
+            }
+
+            return new Blob([view], { type: 'audio/wav' });
+        }
+
+        function writeString(view, offset, string) {
+            for (let i = 0; i < string.length; i++) {
+                view.setUint8(offset + i, string.charCodeAt(i));
+            }
+        }
+    </script>
+</body>
+</html>
