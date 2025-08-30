@@ -514,7 +514,7 @@
                 try {
                     const systemPrompt = "You are a creative YouTube video idea generator. You will provide compelling, faceless video ideas for a channel about the given topic. The ideas should be highly engaging and suitable for visual-first content.";
                     const userQuery = `Generate 5 video ideas for a faceless YouTube channel about ${channel.toLowerCase()} and tours. For each idea, provide a catchy title and a brief one-sentence description. Format the response as a numbered list.`;
-                    const apiKey = "";
+                    const apiKey = "AIzaSyBc-n0fbA4uueg69POcsLnKkFNg__KkuRg";
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                     const payload = {
@@ -567,7 +567,7 @@
             try {
                 const systemPrompt = "You are a professional YouTube video scriptwriter. Your task is to write a compelling, faceless video script that is suitable for a voice-over and on-screen visuals. The script should be engaging, informative, and avoid mentioning a person or using 'I' or 'you'.";
                 const userQuery = `Write a 300-word faceless YouTube video script about the topic: "${topic}".`;
-                const apiKey = ""
+                const apiKey = "AIzaSyBc-n0fbA4uueg69POcsLnKkFNg__KkuRg"
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                 const payload = {
@@ -620,7 +620,7 @@
             try {
                 const systemPrompt = "You are a YouTube SEO expert. Your task is to analyze a video script and generate a highly clickable and SEO-friendly title and a short, engaging description for the video.";
                 const userQuery = `Analyze the following script and provide a YouTube video title and a one-sentence description. Only provide the title and description, nothing else.\n\nScript:\n${script}`;
-                const apiKey = "";
+                const apiKey = "AIzaSyBc-n0fbA4uueg69POcsLnKkFNg__KkuRg";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                 const payload = {
@@ -662,7 +662,7 @@
             try {
                 const systemPrompt = "You are a professional video editor and visual storyteller. Your task is to analyze a video script and suggest a list of relevant visual assets and stock footage keywords. Provide a concise, bulleted list.";
                 const userQuery = `Analyze the following video script and suggest 10 key visual assets or stock footage keywords to match the narrative. For example, if the script mentions a city, suggest "cinematic drone shot of cityscape".\n\nScript:\n${script}`;
-                const apiKey = "";
+                const apiKey = "AIzaSyBc-n0fbA4uueg69POcsLnKkFNg__KkuRg";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                 const payload = {
@@ -727,7 +727,7 @@
                     },
                     model: "gemini-2.5-flash-preview-tts"
                 };
-                const apiKey = "";
+                const apiKey = "AIzaSyBc-n0fbA4uueg69POcsLnKkFNg__KkuRg";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
 
                 const response = await fetch(apiUrl, {
@@ -777,7 +777,7 @@
             try {
                 const systemPrompt = "You are a YouTube SEO expert. Your task is to analyze a video script and generate a concise list of 10-15 relevant hashtags and video tags. Provide a comma-separated list of tags and then a list of hashtags. Do not include any other text besides the tags and hashtags.";
                 const userQuery = `Generate hashtags and tags for the following video script:\n\nScript:\n${script}`;
-                const apiKey = "";
+                const apiKey = "AIzaSyBc-n0fbA4uueg69POcsLnKkFNg__KkuRg";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                 const payload = {
@@ -833,7 +833,7 @@
             try {
                 const systemPrompt = "You are a helpful and friendly YouTube channel owner. Your task is to write a concise and engaging reply to a viewer's comment based on the video's script. The reply should be positive and encouraging.";
                 const userQuery = `Original video script:\n${script}\n\nViewer's comment:\n${comment}\n\nDraft a concise and friendly reply.`;
-                const apiKey = "";
+                const apiKey = "AIzaSyBc-n0fbA4uueg69POcsLnKkFNg__KkuRg";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                 const payload = {
@@ -885,7 +885,7 @@
             try {
                 const prompt = `A cinematic, visually striking and highly engaging thumbnail image for a faceless YouTube video about "${topic}". The image should be abstract, captivating and suitable for a tech, billionaire, or travel channel.`;
                 const payload = { instances: { prompt: prompt }, parameters: { "sampleCount": 1} };
-                const apiKey = ""
+                const apiKey = "AIzaSyBc-n0fbA4uueg69POcsLnKkFNg__KkuRg"
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
 
                 const response = await fetch(apiUrl, {
@@ -936,7 +936,7 @@
             try {
                 const systemPrompt = "You are a professional translator. Your task is to accurately translate the provided text into the specified language.";
                 const userQuery = `Translate the following video script into ${languageSelect.options[languageSelect.selectedIndex].text}:\n\n${script}`;
-                const apiKey = "";
+                const apiKey = "AIzaSyBc-n0fbA4uueg69POcsLnKkFNg__KkuRg";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                 const payload = {
@@ -988,7 +988,7 @@
             try {
                 const systemPrompt = "You are a social media manager. Your task is to take a video script and generate compelling, platform-specific social media posts for Twitter, Instagram, and TikTok to promote the video.";
                 const userQuery = `Generate a concise social media post for Twitter (max 280 characters), a short caption for Instagram with relevant emojis and hashtags, and a brief script idea for TikTok based on the following video script.\n\nScript:\n${script}`;
-                const apiKey = "";
+                const apiKey = "AIzaSyBc-n0fbA4uueg69POcsLnKkFNg__KkuRg";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                 const payload = {
@@ -1030,7 +1030,7 @@
             try {
                 const systemPrompt = "You are a professional content creator. Your task is to analyze a video script and generate a brief summary and a list of key topics with timestamp markers. Assume a reading pace of 150 words per minute for timestamp estimation. The timestamps should be formatted like '0:00'.";
                 const userQuery = `Based on the following script, generate a one-paragraph summary for the video description and a list of timestamps with topic titles. Estimate timestamps assuming 150 words per minute.\n\nScript:\n${script}`;
-                const apiKey = "";
+                const apiKey = "AIzaSyBc-n0fbA4uueg69POcsLnKkFNg__KkuRg";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                 const payload = {
@@ -1082,7 +1082,7 @@
             try {
                 const systemPrompt = "You are an AI fact-checker. Your task is to review a video script and identify key factual claims that should be verified. Provide a concise, numbered list of claims and, for each, a confirmation or correction with a reference link to a credible source. If the claim is an opinion or not easily verifiable, state that it is not a factual claim.";
                 const userQuery = `Review the following script for factual accuracy. Identify key claims and provide a short verification and a source link for each one. Script:\n\n${script}`;
-                const apiKey = "";
+                const apiKey = "AIzaSyBc-n0fbA4uueg69POcsLnKkFNg__KkuRg";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                 const payload = {
@@ -1125,7 +1125,7 @@
             try {
                 const systemPrompt = "You are a creative content developer. Your task is to generate a short, three-question multiple-choice quiz based on the content of a video script. The quiz should be engaging for viewers.";
                 const userQuery = `Generate a three-question, multiple-choice quiz based on the following script. Provide the questions, four possible answers for each (A, B, C, D), and the correct answer. The correct answer should be clearly marked with a '*' next to the letter.\n\nScript:\n${script}`;
-                const apiKey = "";
+                const apiKey = "AIzaSyBc-n0fbA4uueg69POcsLnKkFNg__KkuRg";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                 const payload = {
